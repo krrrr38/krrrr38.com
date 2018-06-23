@@ -24,7 +24,7 @@
    @home.Getter('blogItems') blogItems: HatenaBlogItem[];
    @home.Action('getBlogFeed') getBlogFeed: any;
 
-   mounted() {
+   created() {
      this.getBlogFeed();
    }
 }
