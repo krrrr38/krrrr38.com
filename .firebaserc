@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "my-sample-c1297"
+    "default": "dev-krrrr38",
+    "prod": "prod-krrrr38"
   }
 }

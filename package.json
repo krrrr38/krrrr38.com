@@ -6,7 +6,8 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "vue-cli-service build && firebase deploy --only hosting",
+    "deploy": "firebase deploy --only hosting",
+    "deployProdCI": "firebase deploy --only hosting -P prod --token=$FOREBASE_DEPLOY_TOKEN",
     "test:unit": "vue-cli-service test:unit"
   },
   "dependencies": {
