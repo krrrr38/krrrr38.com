@@ -11,9 +11,18 @@
 
 ## Development
 
+- hosting
+
 ```sh
-> npm install
-> npm run serve // open http://localhost:5000
+> nvm use v10.5.0
+> yarn install
+> yarn serve // open http://localhost:5000
+```
+
+- functions
+```sh
+> nvm use v6.11.5 // Cloud Functions support node version
+> yarn serve
 ```
 
 ## Deploy

@@ -31,13 +31,30 @@ jobs:
       - run: yarn install
       - run: yarn build
       - run:
-          name: Deploy Master to Firebase
+          name: Deploy Hosting, FireStore to Firebase
           command: yarn deployProdCI
+  deploy-functions:
+    docker:
+      - image: circleci/node:10.5
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: yarn install
+      - run: npm --prefix functions install
+      - run:
+          name: Deploy Functions to Firebase
+          command: yarn deployProdFunctionsCI
 workflows:
   version: 2
   build-deploy:
     jobs:
       - build-job
+      - deploy-functions:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master
       - deploy-job:
           requires:
             - build-job
