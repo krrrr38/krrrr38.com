@@ -3,6 +3,9 @@ import Vuex from 'vuex';
 
 import { RootState } from '../types';
 import { home } from './modules/home';
+import { authSignup } from './modules/auth/signup';
+import { authLogin } from './modules/auth/login';
+import { authLogout } from './modules/auth/logout';
 import { createLogger } from '../plugins/logger';
 
 const debug = process.env.NODE_ENV !== 'production';
@@ -14,6 +17,9 @@ Vue.use(Vuex);
 export default new Vuex.Store<RootState>({
   modules: {
     home,
+    authSignup,
+    authLogin,
+    authLogout,
   },
   state: { version },
   mutations: {

@@ -9,6 +9,24 @@ export interface HomeState {
   blogItems: HatenaBlogItem[];
 }
 
+export interface SignupState {
+  email: string;
+  password: string;
+}
+
+export interface LoginState {
+  email: string;
+  password: string;
+}
+
+export interface LogoutState {} // tslint:disable-line
+
+//////////////////////////////////////////////
+
+export interface HTMLElementEvent<T extends HTMLElement> extends Event {
+  target: T;
+}
+
 //////////////////////////////////////////////
 
 export interface HatenaBlogFeedResponse {
