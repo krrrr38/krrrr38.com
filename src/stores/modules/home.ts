@@ -1,6 +1,6 @@
 import { Module, GetterTree, ActionTree, MutationTree } from 'vuex';
-import { RootState, HomeState, HatenaBlogFeedResponse, HatenaBlog, HatenaBlogItem } from '../../types';
-import { HatenaBlogAPI } from '../../api/hatena-blog';
+import { RootState, HomeState, HatenaBlogFeedResponse, HatenaBlog, HatenaBlogItem } from '@/types';
+import { HatenaBlogAPI } from '@/api/hatena-blog';
 
 // initial state
 export const state: HomeState = {

@@ -12,8 +12,8 @@
 
 <script lang="ts">
  import { Component, Vue } from 'vue-property-decorator';
- import { State, Action, Getter, namespace } from 'vuex-class';
- import { HatenaBlogFeedResponse, HatenaBlog, HatenaBlogItem, HomeState } from '../../types';
+ import { State, namespace } from 'vuex-class';
+ import { HatenaBlog, HatenaBlogItem, HomeState } from '../../types';
 
  const home = namespace('home');
 

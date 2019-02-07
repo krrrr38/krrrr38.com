@@ -28,7 +28,7 @@
  }
 
  .lsf, .lsf-icon:before {
-   font-family: 'LigatureSymbols';
+   font-family: 'LigatureSymbols', sans-serif;
    -webkit-text-rendering: optimizeLegibility;
    -moz-text-rendering: optimizeLegibility;
    -ms-text-rendering: optimizeLegibility;

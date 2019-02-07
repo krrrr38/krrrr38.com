@@ -1,6 +1,6 @@
 import { Module, GetterTree, ActionTree, MutationTree } from 'vuex';
-import { RootState, SignupState } from '../../../types';
-import { AuthAPI } from '../../../api/auth';
+import { RootState, SignupState } from '@/types';
+import { AuthAPI } from '@/api/auth';
 
 // initial state
 export const state: SignupState = {
