@@ -14,15 +14,16 @@
 - hosting
 
 ```sh
-> nvm use v10.5.0
+> nvm use
 > yarn install
 > yarn serve // open http://localhost:5000
 ```
 
 - functions
 ```sh
-> nvm use v6.11.5 // Cloud Functions support node version
-> yarn serve
+> cd functions
+> nvm use // Cloud Functions support node version
+> yarn serve // curl -i http://localhost:5000/dev-krrrr38/us-central1/api/api/health
 ```
 
 ## Deploy
