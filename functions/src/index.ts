@@ -13,6 +13,9 @@ const tetoClient = new Client(tetoClientConfigConfig);
 const tetoMiddleware = linebotMiddleware(LineBotTetoConfig.channelSecret);
 
 const apiApp = express();
+apiApp.get('/api/health', (req, res) => {
+  res.send("hello");
+});
 apiApp.post('/api/linebot/teto', tetoMiddleware, (req, res) => {
   const teto = new Teto(tetoClient);
   teto.handle(req.body.events)
