@@ -1,6 +1,6 @@
-import { Module, GetterTree, ActionTree, MutationTree } from 'vuex';
-import { RootState, LoginState } from '@/types';
-import { AuthAPI } from '@/api/auth';
+import {ActionTree, GetterTree, Module, MutationTree} from 'vuex';
+import {LoginState, RootState} from '@/types';
+import {AuthAPI} from '@/api/auth';
 
 // initial state
 export const state: LoginState = {
@@ -20,14 +20,14 @@ const getters: GetterTree<LoginState, RootState> = {
 
 // actions
 const actions: ActionTree<LoginState, RootState> = {
-  submitLoginEmail({ commit }, { email, password }) {
+  submitLoginEmail({commit}, {email, password}) {
     return new Promise((resolve, reject) => {
       AuthAPI.signInWithEmailAndPassword(email, password, () => {
         resolve(); // redirect without commit
       });
     });
   },
-  submitSigninGoogle({ commit }) {
+  submitSigninGoogle({commit}) {
     return new Promise((resolve, reject) => {
       AuthAPI.signInWithGoogle(() => {
         resolve(); // redirect without commit

@@ -1,6 +1,6 @@
-import { Module, GetterTree, ActionTree, MutationTree } from 'vuex';
-import { RootState, HomeState, HatenaBlogFeedResponse, HatenaBlog, HatenaBlogItem } from '@/types';
-import { HatenaBlogAPI } from '@/api/hatena-blog';
+import {ActionTree, GetterTree, Module, MutationTree} from 'vuex';
+import {HatenaBlog, HatenaBlogFeedResponse, HatenaBlogItem, HomeState, RootState} from '@/types';
+import {HatenaBlogAPI} from '@/api/hatena-blog';
 
 // initial state
 export const state: HomeState = {
@@ -20,7 +20,7 @@ const getters: GetterTree<HomeState, RootState> = {
 
 // actions
 const actions: ActionTree<HomeState, RootState> = {
-  getBlogFeed({ commit }) {
+  getBlogFeed({commit}) {
     HatenaBlogAPI.getBlogFeed((res: HatenaBlogFeedResponse) => {
       commit('setBlogFeed', res);
     });

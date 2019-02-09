@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { HatenaBlogFeedResponse } from '@/types.ts';
+import {HatenaBlogFeedResponse} from '@/types.ts';
 
 const BLOG_URL = 'http://krrrr.hatenablog.com/feed';
 

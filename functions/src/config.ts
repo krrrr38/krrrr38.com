@@ -8,4 +8,4 @@ import * as functions from 'firebase-functions';
 export const LineBotTetoConfig = {
   channelAccessToken: functions.config().linebot.teto.token,
   channelSecret: functions.config().linebot.teto.secret,
-}
+};

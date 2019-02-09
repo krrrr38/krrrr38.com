@@ -61,6 +61,10 @@ router.beforeEach((to, from, next) => {
   const currentUser = firebase.auth().currentUser;
   const requireAuth = to.matched.some((r) => r.meta.requireAuth);
 
+  if (currentUser) {
+    console.log(currentUser); // tslint:disable-line
+  }
+
   if (requireAuth && !currentUser) {
     next('/auth/login');
   } else {

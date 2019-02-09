@@ -1,13 +1,13 @@
 import * as functions from 'firebase-functions';
 import * as express from 'express';
-import { Teto } from './linebot/teto';
-import { linebotMiddleware } from './linebot/middleware';
-import { LineBotTetoConfig } from './config';
-import { Client, ClientConfig } from '@line/bot-sdk';
+import {Teto} from './linebot/teto';
+import {linebotMiddleware} from './linebot/middleware';
+import {LineBotTetoConfig} from './config';
+import {Client, ClientConfig} from '@line/bot-sdk';
 
 const tetoClientConfigConfig: ClientConfig = {
   channelAccessToken: LineBotTetoConfig.channelAccessToken,
-}
+};
 
 const tetoClient = new Client(tetoClientConfigConfig);
 const tetoMiddleware = linebotMiddleware(LineBotTetoConfig.channelSecret);
