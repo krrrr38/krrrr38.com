@@ -1,8 +1,9 @@
 import {PingRule, TextRule,} from './rules/text-rule';
 import {Client, TextEventMessage,} from '@line/bot-sdk';
+import {PingService} from '../../domain/ping/ping-service';
 
 const rules: TextRule[] = [
-  new PingRule()
+  new PingRule(new PingService())
 ];
 
 export const MessageHandler = async (client: Client, replyToken: string, message: TextEventMessage) => {
