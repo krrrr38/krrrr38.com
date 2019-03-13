@@ -31,6 +31,11 @@ const router = new Router({
       name: 'cv-en',
       component: CvEn,
     },
+    // {
+    //   path: '/practice/trace/folio',
+    //   name: 'trace-folio-top',
+    //   component: TraceFolioTop,
+    // },
     {
       path: '/auth/signup',
       name: 'signup',

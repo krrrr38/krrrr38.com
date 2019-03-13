@@ -17,22 +17,22 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from "vue-property-decorator";
-  import {namespace} from "vuex-class";
-  import {HTMLElementEvent} from "../../types";
+  import {Component, Vue} from 'vue-property-decorator';
+  import {namespace} from 'vuex-class';
+  import {HTMLElementEvent} from '@/types';
 
-  const authLogin = namespace("authLogin");
+  const authLogin = namespace('authLogin');
 
   @Component({
     components: {},
   })
   export default class Login extends Vue {
-    @authLogin.Mutation("updateEmail") updateEmailMutation: any;
-    @authLogin.Mutation("updatePassword") updatePasswordMutation: any;
-    @authLogin.Getter("email") email: string;
-    @authLogin.Getter("password") password: string;
-    @authLogin.Action("submitLoginEmail") submitLoginEmailAction: any;
-    @authLogin.Action("submitSigninGoogle") submitSigninGoogleAction: any;
+    @authLogin.Mutation('updateEmail') updateEmailMutation: any;
+    @authLogin.Mutation('updatePassword') updatePasswordMutation: any;
+    @authLogin.Getter('email') email: string;
+    @authLogin.Getter('password') password: string;
+    @authLogin.Action('submitLoginEmail') submitLoginEmailAction: any;
+    @authLogin.Action('submitSigninGoogle') submitSigninGoogleAction: any;
 
     updateEmail(event: HTMLElementEvent<HTMLInputElement>) {
       this.updateEmailMutation(event.target.value);
@@ -47,13 +47,13 @@
         email: this.email,
         password: this.password,
       }).then(() => {
-        this.$router.push("/");
+        this.$router.push('/');
       });
     }
 
     submitSigninGoogle() {
       this.submitSigninGoogleAction().then(() => {
-        this.$router.push("/");
+        this.$router.push('/');
       });
     }
   }
