@@ -57,21 +57,31 @@ const router = new Router({
       component: Admin,
       meta: {
         requireAuth: true,
+        requireAdmin: true,
       },
     },
   ],
 });
 
 router.beforeEach((to, from, next) => {
-  const currentUser = firebase.auth().currentUser;
   const requireAuth = to.matched.some((r) => r.meta.requireAuth);
+  const requireAdmin = to.matched.some((r) => r.meta.requireAdmin); // TODO
 
-  if (currentUser) {
-    console.log(currentUser); // tslint:disable-line
-  }
-
-  if (requireAuth && !currentUser) {
-    next('/auth/login');
+  if (requireAuth) {
+    const redirectLogin = () => {
+      next({
+        path: '/auth/login',
+        query: { redirect: to.fullPath },
+      });
+    };
+    firebase.auth().onAuthStateChanged((user) => {
+      console.log("onAuthStateChanged: ", user); // tslint:disable-line
+      if (user) {
+        next();
+      } else {
+        redirectLogin();
+      }
+    });
   } else {
     next();
   }

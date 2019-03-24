@@ -21,6 +21,6 @@ import Something from '@/components/index/Something.vue';
     Blog,
     Something,
   },
- })
+})
 export default class Home extends Vue {}
 </script>

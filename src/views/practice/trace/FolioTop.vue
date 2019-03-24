@@ -3,7 +3,7 @@
     <header>
       <div class="header-container">
         <div class="top-header">
-          <img src="/assets/img/practice/72x40.png">
+          <img src="/assets/img/practice/72x40.png" />
           <ul>
             <li>テーマ投資</li>
             <li>おまかせ投資</li>
@@ -51,46 +51,45 @@
 </template>
 
 <script lang="ts">
-  import {Component, Vue} from 'vue-property-decorator';
+import { Component, Vue } from 'vue-property-decorator';
 
-  @Component
-  export default class FolioTop extends Vue {
-  }
+@Component
+export default class FolioTop extends Vue {}
 </script>
 
 <style scoped lang="scss">
-  header {
-    .header-container {
-      width: 100%;
-      display: inline-block;
-      margin: 5px;
-      padding: 0 5px;
+header {
+  .header-container {
+    width: 100%;
+    display: inline-block;
+    margin: 5px;
+    padding: 0 5px;
+  }
+  .top-header {
+    display: flex;
+    float: left;
+    img {
+      height: 44px;
     }
-    .top-header {
+    ul {
       display: flex;
-      float: left;
-      img {
-        height: 44px;
-      }
-      ul {
-        display: flex;
-        list-style: none;
-        align-items: center;
-        li {
-          margin: 0 5px;
-        }
-      }
-    }
-
-    .login {
-      display: flex;
-      float: right;
-      button {
-        width: 130px;
-        border-radius: 5px;
-        font-size: 0.8rem;
-        line-height: 44px;
+      list-style: none;
+      align-items: center;
+      li {
+        margin: 0 5px;
       }
     }
   }
+
+  .login {
+    display: flex;
+    float: right;
+    button {
+      width: 130px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      line-height: 44px;
+    }
+  }
+}
 </style>
