@@ -1,4 +1,4 @@
-import * as functions from 'firebase-functions';
+import * as functions from 'firebase-functions'
 
 // require
 // firebase functions:config:set linebot.teto.token=${CHANNEL_ACCESS_TOKEN}
@@ -13,11 +13,11 @@ import * as functions from 'firebase-functions';
 
 export const LineBotTetoConfig = {
   channelAccessToken: functions.config().linebot.teto.token,
-  channelSecret: functions.config().linebot.teto.secret,
-};
+  channelSecret: functions.config().linebot.teto.secret
+}
 
 // https://api.slack.com/apps/A9LQENX09/general?
 export const SlackBotMoonConfig = {
   // App Credentials -> Signing Secret
   appSigningSecret: functions.config().slackbot.moon.app_signing_secret
-};
+}

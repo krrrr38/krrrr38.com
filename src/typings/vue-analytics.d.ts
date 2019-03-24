@@ -1,1 +1,1 @@
-declare module 'vue-analytics';
+declare module 'vue-analytics'

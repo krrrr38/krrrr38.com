@@ -5,21 +5,21 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
+import { Component, Vue } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
 
-const authLogout = namespace('authLogout');
+const authLogout = namespace('authLogout')
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class Login extends Vue {
-  @authLogout.Action('submitLogout') submitLogoutAction: any;
+  @authLogout.Action('submitLogout') submitLogoutAction: any
 
   submitLogout() {
     this.submitLogoutAction().then(() => {
-      this.$router.push('/');
-    });
+      this.$router.push('/')
+    })
   }
 }
 </script>

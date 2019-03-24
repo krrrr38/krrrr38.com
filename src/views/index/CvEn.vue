@@ -3,13 +3,13 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import VueEmbedGist from 'vue-embed-gist';
+import { Component, Vue } from 'vue-property-decorator'
+import VueEmbedGist from 'vue-embed-gist'
 
 @Component({
   components: {
-    VueEmbedGist,
-  },
+    VueEmbedGist
+  }
 })
 export default class CvEn extends Vue {}
 </script>

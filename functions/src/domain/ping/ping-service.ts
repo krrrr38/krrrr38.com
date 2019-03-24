@@ -1,11 +1,11 @@
 export interface PingResponse {
-  message: string;
+  message: string
 }
 
 export class PingService {
   run(): Promise<PingResponse> {
     return Promise.resolve({
-      message: "pong",
+      message: 'pong'
     })
   }
 }

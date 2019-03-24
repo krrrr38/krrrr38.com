@@ -1,1 +1,1 @@
-declare module 'vue-embed-gist';
+declare module 'vue-embed-gist'

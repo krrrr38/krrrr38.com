@@ -1,1 +1,1 @@
-export type SlackHandleFunction = (args: string[]) => Promise<any>;
+export type SlackHandleFunction = (args: string[]) => Promise<any>

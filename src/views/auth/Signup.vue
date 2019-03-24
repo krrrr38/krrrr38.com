@@ -27,44 +27,44 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import { namespace } from 'vuex-class';
-import { HTMLElementEvent } from '@/types';
+import { Component, Vue } from 'vue-property-decorator'
+import { namespace } from 'vuex-class'
+import { HTMLElementEvent } from '@/types'
 
-const authSignup = namespace('authSignup');
+const authSignup = namespace('authSignup')
 
 @Component({
-  components: {},
+  components: {}
 })
 export default class Signup extends Vue {
-  @authSignup.Getter('email') email: string;
-  @authSignup.Getter('password') password: string;
-  @authSignup.Mutation('updateEmail') updateEmailMutation: any;
-  @authSignup.Mutation('updatePassword') updatePasswordMutation: any;
-  @authSignup.Action('submitSignupEmail') submitSignupEmailAction: any;
-  @authSignup.Action('submitSigninGoogle') submitSigninGoogleAction: any;
+  @authSignup.Getter('email') email: string
+  @authSignup.Getter('password') password: string
+  @authSignup.Mutation('updateEmail') updateEmailMutation: any
+  @authSignup.Mutation('updatePassword') updatePasswordMutation: any
+  @authSignup.Action('submitSignupEmail') submitSignupEmailAction: any
+  @authSignup.Action('submitSigninGoogle') submitSigninGoogleAction: any
 
   updateEmail(event: HTMLElementEvent<HTMLInputElement>) {
-    this.updateEmailMutation(event.target.value);
+    this.updateEmailMutation(event.target.value)
   }
 
   updatePassword(event: HTMLElementEvent<HTMLInputElement>) {
-    this.updatePasswordMutation(event.target.value);
+    this.updatePasswordMutation(event.target.value)
   }
 
   submitSignupEmail() {
     this.submitSignupEmailAction({
       email: this.email,
-      password: this.password,
+      password: this.password
     }).then(() => {
-      this.$router.push('/');
-    });
+      this.$router.push('/')
+    })
   }
 
   submitSigninGoogle() {
     this.submitSigninGoogleAction().then(() => {
-      this.$router.push('/');
-    });
+      this.$router.push('/')
+    })
   }
 }
 </script>
