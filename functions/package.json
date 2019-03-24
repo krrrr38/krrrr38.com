@@ -6,6 +6,7 @@
     "serve": "npm run build && firebase serve --only functions",
     "shell": "npm run build && firebase functions:shell",
     "start": "npm run shell",
+    "api": "npm run build && RUN_API_SERVER=1 node lib/api.js",
     "deploy": "firebase deploy --only functions",
     "logs": "firebase functions:log"
   },

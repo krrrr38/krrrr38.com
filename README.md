@@ -26,6 +26,12 @@
 > yarn serve // curl -i http://localhost:5000/dev-krrrr38/us-central1/api/api/health
 ```
 
+or
+
+```sh
+> yarn run api // curl -i http://localhost:3000/api/health
+```
+
 ## Deploy
 
 ```sh
