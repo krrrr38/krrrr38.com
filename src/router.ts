@@ -3,6 +3,7 @@ import VueAnalytics from 'vue-analytics'
 import Component from 'vue-class-component'
 import Router from 'vue-router'
 import firebase from 'firebase'
+import 'firebase/auth'
 
 import Home from './views/index/Home.vue'
 import CvJa from './views/index/CvJa.vue'

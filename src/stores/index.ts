@@ -7,9 +7,10 @@ import { authSignup } from './modules/auth/signup'
 import { authLogin } from './modules/auth/login'
 import { authLogout } from './modules/auth/logout'
 
+const version = process.env.VUE_APP_VERSION || 'unknown'
 const debug = process.env.NODE_ENV !== 'production'
-const version = process.env.CIRCLE_SHA1 || '0.0.1'
-console.log({ version: version }) // tslint:disable-line
+
+console.log({ env: process.env.NODE_ENV, version: version })
 
 Vue.use(Vuex)
 

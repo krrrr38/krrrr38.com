@@ -4,12 +4,12 @@ import router from './router'
 import store from './stores'
 import './registerServiceWorker'
 import firebase from 'firebase'
+import 'firebase/app'
+import 'firebase/auth'
 
 Vue.config.productionTip = false
 
 let app: Vue
-
-console.log({ env: process.env.NODE_ENV, version: process.env.VUE_APP_VERSION })
 
 const firebaseConfig = {
   apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
