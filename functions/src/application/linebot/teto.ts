@@ -1,19 +1,11 @@
-import {
-  Client,
-  Message,
-  MessageEvent,
-  TextMessage,
-  WebhookEvent
-} from '@line/bot-sdk'
+import { Client, Message, MessageEvent, TextMessage, WebhookEvent } from '@line/bot-sdk'
 import { MessageHandler } from './message-handler'
 
 export class Teto {
   constructor(private client: Client) {}
 
   async handle(events: WebhookEvent[]): Promise<string> {
-    return Promise.all(events.map(event => this.handleEvent(event))).then(
-      res => 'ok'
-    )
+    return Promise.all(events.map(event => this.handleEvent(event))).then(res => 'ok')
   }
 
   private async handleEvent(event: WebhookEvent): Promise<any> {
@@ -29,9 +21,7 @@ export class Teto {
     }
   }
 
-  private async handleMessageEvent(
-    event: MessageEvent
-  ): Promise<Message[] | null> {
+  private async handleMessageEvent(event: MessageEvent): Promise<Message[] | null> {
     switch (event.message.type) {
       case 'text':
         return MessageHandler(this.client, event.replyToken, event.message)

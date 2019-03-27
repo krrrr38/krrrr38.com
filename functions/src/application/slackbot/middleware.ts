@@ -12,9 +12,7 @@ export const rawBodySaver = (req: any, res: any, buf: any, encoding: any) => {
 // https://api.slack.com/docs/verifying-requests-from-slack
 export const slackUrlEncodedMiddleware = (slackSigningSecret: string) => {
   return (req: Request, res: Response, next: NextFunction) => {
-    const sigBaseString = `v0:${req.header('X-Slack-Request-Timestamp')}:${
-      (req as any).rawBody
-    }`
+    const sigBaseString = `v0:${req.header('X-Slack-Request-Timestamp')}:${(req as any).rawBody}`
     const hash = crypto
       .createHmac('sha256', slackSigningSecret)
       .update(sigBaseString)

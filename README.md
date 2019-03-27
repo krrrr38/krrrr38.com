@@ -9,7 +9,18 @@
 > firebase init // functions, hosting, firestore
 ```
 
+## Firebase Service Account
+
+- local: https://console.firebase.google.com/project/dev-krrrr38/settings/iam?hl=ja
+- prod: https://console.firebase.google.com/project/prod-krrrr38/settings/iam?hl=ja
+
 ## Development
+
+firebase-tools
+
+```sh
+> yarn global add firebase-tools --ignore-engines
+```
 
 - hosting
 
@@ -20,15 +31,11 @@
 ```
 
 - functions
+
 ```sh
 > cd functions
-> nvm use // Cloud Functions support node version
-> yarn serve // curl -i http://localhost:5000/dev-krrrr38/us-central1/api/api/health
-```
-
-or
-
-```sh
+> # setup direnv
+> direnv edit # (see config.ts)
 > yarn run api // curl -i http://localhost:3000/api/health
 ```
 
@@ -36,4 +43,10 @@ or
 
 ```sh
 > npm run deploy
+```
+
+## Tips
+
+```
+firebase functions:config:set service_account="$(cat service-account.json)"
 ```

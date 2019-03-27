@@ -3,67 +3,25 @@
     <h2>Social</h2>
     <ul class="social-list">
       <li>
-        <a
-          href="https://www.facebook.com/k.kaizu38"
-          class="lsf-icon"
-          title="facebook"
-          target="_blank"
-          >Facebook</a
-        >
+        <a href="https://www.facebook.com/k.kaizu38" class="lsf-icon" title="facebook" target="_blank">Facebook</a>
       </li>
       <li>
-        <a
-          href="https://twitter.com/krrrr38"
-          class="lsf-icon"
-          title="twitter"
-          target="_blank"
-          >Twitter</a
-        >
+        <a href="https://twitter.com/krrrr38" class="lsf-icon" title="twitter" target="_blank">Twitter</a>
       </li>
       <li>
-        <a
-          href="https://github.com/krrrr38"
-          class="lsf-icon"
-          title="github"
-          target="_blank"
-          >GitHub</a
-        >
+        <a href="https://github.com/krrrr38" class="lsf-icon" title="github" target="_blank">GitHub</a>
       </li>
       <li>
-        <a
-          href="http://instagram.com/krrrr38"
-          class="lsf-icon"
-          title="instagram"
-          target="_blank"
-          >Instagram</a
-        >
+        <a href="http://instagram.com/krrrr38" class="lsf-icon" title="instagram" target="_blank">Instagram</a>
       </li>
       <li>
-        <a
-          href="http://www.linkedin.com/profile/view?id=186775902"
-          class="lsf-icon"
-          title="linkedin"
-          target="_blank"
-          >LinkedIn</a
-        >
+        <a href="http://www.linkedin.com/profile/view?id=186775902" class="lsf-icon" title="linkedin" target="_blank">LinkedIn</a>
       </li>
       <li>
-        <a
-          href="http://profile.hatena.ne.jp/krrrr/"
-          class="lsf-icon"
-          title="hatena"
-          target="_blank"
-          >Hatena</a
-        >
+        <a href="http://profile.hatena.ne.jp/krrrr/" class="lsf-icon" title="hatena" target="_blank">Hatena</a>
       </li>
       <li>
-        <a
-          href="http://www.amazon.co.jp/registry/wishlist/1HEYQLQTW461W"
-          class="lsf-icon"
-          title="amazon"
-          target="_blank"
-          >Amazon</a
-        >
+        <a href="http://www.amazon.co.jp/registry/wishlist/1HEYQLQTW461W" class="lsf-icon" title="amazon" target="_blank">Amazon</a>
       </li>
     </ul>
   </div>

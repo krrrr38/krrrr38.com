@@ -1,35 +1,36 @@
-import Vue from 'vue';
-import VueAnalytics from 'vue-analytics';
-import Component from 'vue-class-component';
-import Router from 'vue-router';
-import firebase from 'firebase';
+import Vue from 'vue'
+import VueAnalytics from 'vue-analytics'
+import Component from 'vue-class-component'
+import Router from 'vue-router'
+import firebase from 'firebase'
 
-import Home from './views/index/Home.vue';
-import CvJa from './views/index/CvJa.vue';
-import CvEn from './views/index/CvEn.vue';
-import Signup from './views/auth/Signup.vue';
-import Login from './views/auth/Login.vue';
-import Logout from './views/auth/Logout.vue';
-import Admin from './views/admin/Admin.vue';
+import Home from './views/index/Home.vue'
+import CvJa from './views/index/CvJa.vue'
+import CvEn from './views/index/CvEn.vue'
+import Signup from './views/auth/Signup.vue'
+import Login from './views/auth/Login.vue'
+import Logout from './views/auth/Logout.vue'
+import Admin from './views/admin/Admin.vue'
+import MyPage from './views/mypage/MyPage.vue'
 
-Vue.use(Router);
+Vue.use(Router)
 
 const router = new Router({
   routes: [
     {
       path: '/',
       name: 'home',
-      component: Home,
+      component: Home
     },
     {
       path: '/cv/ja',
       name: 'cv-ja',
-      component: CvJa,
+      component: CvJa
     },
     {
       path: '/cv/en',
       name: 'cv-en',
-      component: CvEn,
+      component: CvEn
     },
     // {
     //   path: '/practice/trace/folio',
@@ -39,17 +40,25 @@ const router = new Router({
     {
       path: '/auth/signup',
       name: 'signup',
-      component: Signup,
+      component: Signup
     },
     {
       path: '/auth/login',
       name: 'login',
-      component: Login,
+      component: Login
     },
     {
       path: '/auth/logout',
       name: 'logout',
-      component: Logout,
+      component: Logout
+    },
+    {
+      path: '/my',
+      name: 'my',
+      component: MyPage,
+      meta: {
+        requireAuth: true
+      }
     },
     {
       path: '/admin',
@@ -57,46 +66,46 @@ const router = new Router({
       component: Admin,
       meta: {
         requireAuth: true,
-        requireAdmin: true,
-      },
-    },
-  ],
-});
+        requireAdmin: true
+      }
+    }
+  ]
+})
 
 router.beforeEach((to, from, next) => {
-  const requireAuth = to.matched.some((r) => r.meta.requireAuth);
-  const requireAdmin = to.matched.some((r) => r.meta.requireAdmin); // TODO
+  const requireAuth = to.matched.some(r => r.meta.requireAuth)
+  const requireAdmin = to.matched.some(r => r.meta.requireAdmin) // TODO
 
   if (requireAuth) {
     const redirectLogin = () => {
       next({
         path: '/auth/login',
-        query: { redirect: to.fullPath },
-      });
-    };
-    firebase.auth().onAuthStateChanged((user) => {
-      console.log("onAuthStateChanged: ", user); // tslint:disable-line
+        query: { redirect: to.fullPath }
+      })
+    }
+    firebase.auth().onAuthStateChanged(async user => {
+      console.log('onAuthStateChanged: ', user) // tslint:disable-line
       if (user) {
-        next();
+        next()
       } else {
-        redirectLogin();
+        redirectLogin()
       }
-    });
+    })
   } else {
-    next();
+    next()
   }
-});
+})
 
 // Register the router hooks with their names
 Component.registerHooks([
-  'beforeRouteEnter',
+  'beforeRouteEnter'
   // 'beforeRouteLeave',
   // 'beforeRouteUpdate', // for vue-router 2.2+
-]);
+])
 
 Vue.use(VueAnalytics, {
   id: 'UA-37666832-1',
-  router,
-});
+  router
+})
 
-export default router;
+export default router

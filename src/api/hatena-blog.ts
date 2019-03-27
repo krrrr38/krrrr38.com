@@ -7,9 +7,7 @@ type HatenaBlogGetFeedHandler = (blog: HatenaBlogFeedResponse) => void
 
 export const HatenaBlogAPI = {
   getBlogFeed(handler: HatenaBlogGetFeedHandler) {
-    const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(
-      BLOG_URL
-    )}`
+    const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(BLOG_URL)}`
     axios
       .get(url)
       .then(response => {

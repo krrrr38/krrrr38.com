@@ -1,0 +1,2 @@
+export FIREBASE_SERVICE_ACCOUNT='{"type": "service_account",...}'
+export FIREBASE_DATABASE_URL='https://dev-krrrr38.firebaseio.com'

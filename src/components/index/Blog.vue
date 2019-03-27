@@ -4,9 +4,7 @@
     <a :href="blog.link" target="_blank">{{ blog.title }}</a>
     <ul>
       <li v-for="(blogItem, key, index) in blogItems" :key="index">
-        <a :href="blogItem.link" target="_blank"
-          >{{ blogItem.pubDate }} : {{ blogItem.title }}</a
-        >
+        <a :href="blogItem.link" target="_blank">{{ blogItem.pubDate }} : {{ blogItem.title }}</a>
       </li>
     </ul>
   </div>

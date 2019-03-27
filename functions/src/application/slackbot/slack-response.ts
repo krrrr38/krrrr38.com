@@ -13,9 +13,7 @@ const _errorMessageResponse = (message: string) => {
 }
 
 // Error時にSlackへ直接stack traceを返すslash command用のhandler
-export const slackSlashCommand = (
-  func: (req: express.Request, res: express.Response) => any
-) => {
+export const slackSlashCommand = (func: (req: express.Request, res: express.Response) => any) => {
   return (req: express.Request, res: express.Response) => {
     try {
       func(req, res)

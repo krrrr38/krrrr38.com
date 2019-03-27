@@ -4,41 +4,25 @@
     <div>
       <ul>
         <li>
-          <a href="http://krrrr38.github.io/slick-doc-ja/" target="_blank"
-            >Slick Japanese Translation</a
-          >
+          <a href="http://krrrr38.github.io/slick-doc-ja/" target="_blank">Slick Japanese Translation</a>
         </li>
         <li>
-          <a href="https://github.com/krrrr38/jabot" target="_blank"
-            >Jabot (Java + Bot)</a
-          >
+          <a href="https://github.com/krrrr38/jabot" target="_blank">Jabot (Java + Bot)</a>
         </li>
         <li>
-          <a href="https://github.com/krrrr38/halty" target="_blank"
-            >Halty (Text-to-HTML converter)</a
-          >
+          <a href="https://github.com/krrrr38/halty" target="_blank">Halty (Text-to-HTML converter)</a>
         </li>
         <li>
-          <a
-            href="http://krrrr38.github.io/json-interface-builder/"
-            target="_blank"
-            >JSON Interface Builder</a
-          >
+          <a href="http://krrrr38.github.io/json-interface-builder/" target="_blank">JSON Interface Builder</a>
         </li>
         <li>
-          <a href="https://github.com/krrrr38/gpshow" target="_blank"
-            >Go port of picture-show</a
-          >
+          <a href="https://github.com/krrrr38/gpshow" target="_blank">Go port of picture-show</a>
         </li>
         <li>
-          <a href="https://github.com/krrrr38/sbt-sticker" target="_blank"
-            >Sbt Plugin to use Growl</a
-          >
+          <a href="https://github.com/krrrr38/sbt-sticker" target="_blank">Sbt Plugin to use Growl</a>
         </li>
         <li>
-          <a href="https://github.com/krrrr38/play-autodoc" target="_blank"
-            >Generate Documents from Play Test</a
-          >
+          <a href="https://github.com/krrrr38/play-autodoc" target="_blank">Generate Documents from Play Test</a>
         </li>
         <li>
           <a href="https://github.com/krrrr38" target="_blank">and more...</a>
@@ -48,59 +32,35 @@
     <div>
       <ul class="product-list">
         <li class="product">
-          <img
-            src="/assets/img/products/product_collector_s.png"
-            alt="YouTubeStream"
-          />
+          <img src="/assets/img/products/product_collector_s.png" alt="YouTubeStream" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_youtubeextractor_s.png"
-            alt="YouTubeExtractor"
-          />
+          <img src="/assets/img/products/product_youtubeextractor_s.png" alt="YouTubeExtractor" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_youtubeextractplayer_s.png"
-            alt="YouTubeExtractPlayer"
-          />
+          <img src="/assets/img/products/product_youtubeextractplayer_s.png" alt="YouTubeExtractPlayer" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_musicthrough_s.png"
-            alt="MusicThrough"
-          />
+          <img src="/assets/img/products/product_musicthrough_s.png" alt="MusicThrough" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_kyotopower_s.png"
-            alt="KyotoPowerMap"
-          />
+          <img src="/assets/img/products/product_kyotopower_s.png" alt="KyotoPowerMap" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_mergefeed_s.png"
-            alt="MergeFeed"
-          />
+          <img src="/assets/img/products/product_mergefeed_s.png" alt="MergeFeed" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_reportcounter_s.png"
-            alt="ReportCounter"
-          />
+          <img src="/assets/img/products/product_reportcounter_s.png" alt="ReportCounter" />
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_chatroom_s.png"
-            alt="ChatRoom"
-          />
+          <img src="/assets/img/products/product_chatroom_s.png" alt="ChatRoom" />
         </li>
         <!-- product -->
         <li class="product">
@@ -112,10 +72,7 @@
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_graph_s.png"
-            alt="weather graph"
-          />
+          <img src="/assets/img/products/product_graph_s.png" alt="weather graph" />
         </li>
         <!-- product -->
         <li class="product">
@@ -127,10 +84,7 @@
         </li>
         <!-- product -->
         <li class="product">
-          <img
-            src="/assets/img/products/product_twitter_s.jpg"
-            alt="(*'・ω・)"
-          />
+          <img src="/assets/img/products/product_twitter_s.jpg" alt="(*'・ω・)" />
         </li>
         <!-- product -->
       </ul>

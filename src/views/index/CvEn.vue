@@ -21,8 +21,7 @@ export default class CvEn extends Vue {}
   }
   .gist-file {
     margin-bottom: 1em;
-    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
-      monospace;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier, monospace;
     border: 1px solid #ddd;
     border-bottom: 1px solid #ccc;
     border-radius: 3px;
@@ -35,8 +34,7 @@ export default class CvEn extends Vue {}
     .gist-meta {
       padding: 10px;
       overflow: hidden;
-      font: 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial,
-        sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+      font: 12px -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
       color: #586069;
       background-color: #f7f7f7;
       border-radius: 0 0 2px 2px;

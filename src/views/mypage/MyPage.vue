@@ -1,6 +1,6 @@
 <template>
-  <div class="admin">
-    this is admin page
+  <div class="mypage">
+    this is my page
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { Component, Vue } from 'vue-property-decorator'
 @Component({
   components: {}
 })
-export default class Admin extends Vue {
+export default class MyPage extends Vue {
   created() {}
 }
 </script>

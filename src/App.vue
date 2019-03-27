@@ -13,8 +13,7 @@
 
 <style lang="scss">
 * {
-  font-family: 'KoruriNT', 'Lucida Grande', 'Hiragino Kaku Gothic ProN',
-    'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
+  font-family: 'KoruriNT', 'Lucida Grande', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, sans-serif;
   margin: 0;
   padding: 0;
 }
@@ -49,16 +48,9 @@ footer {
 @font-face {
   font-family: 'LigatureSymbols';
   src: url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.eot');
-  src: url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.eot?#iefix')
-      format('embedded-opentype'),
-    url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.woff')
-      format('woff'),
-    url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.ttf')
-      format('truetype'),
-    url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.svg#LigatureSymbols')
-      format('svg');
-  src: url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.ttf')
-    format('truetype');
+  src: url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.eot?#iefix') format('embedded-opentype'), url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.woff') format('woff'),
+    url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.ttf') format('truetype'), url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.svg#LigatureSymbols') format('svg');
+  src: url('/assets/fonts/LigatureSymbols/LigatureSymbols-2.11.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

@@ -5,11 +5,7 @@ const googleProvider = new firebase.auth.GoogleAuthProvider()
 googleProvider.addScope('https://www.googleapis.com/auth/contacts.readonly')
 
 export const AuthAPI = {
-  createUserWithEmailAndPassword(
-    email: string,
-    password: string,
-    success: () => void
-  ) {
+  createUserWithEmailAndPassword(email: string, password: string, success: () => void) {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -31,11 +27,7 @@ export const AuthAPI = {
         alert(error) // tslint:disable-line
       })
   },
-  signInWithEmailAndPassword(
-    email: string,
-    password: string,
-    success: () => void
-  ) {
+  signInWithEmailAndPassword(email: string, password: string, success: () => void) {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)

@@ -2,18 +2,8 @@
   <div class="login">
     <h2>Login</h2>
     <div class="login-email">
-      <input
-        type="text"
-        placeholder="email"
-        :value="email"
-        @input="updateEmail"
-      />
-      <input
-        type="password"
-        placeholder="password"
-        :value="password"
-        @input="updatePassword"
-      />
+      <input type="text" placeholder="email" :value="email" @input="updateEmail" />
+      <input type="password" placeholder="password" :value="password" @input="updatePassword" />
       <button @click="submitLoginEmail">Login</button>
     </div>
     <div class="login-google">

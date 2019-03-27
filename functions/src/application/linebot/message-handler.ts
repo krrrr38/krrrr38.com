@@ -4,11 +4,7 @@ import { PingService } from '../../domain/ping/ping-service'
 
 const rules: TextRule[] = [new PingRule(new PingService())]
 
-export const MessageHandler = async (
-  client: Client,
-  replyToken: string,
-  message: TextEventMessage
-) => {
+export const MessageHandler = async (client: Client, replyToken: string, message: TextEventMessage) => {
   const text = message.text
   for (const rule of rules) {
     const messagesOrNull = await rule.handle(text)
