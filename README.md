@@ -24,6 +24,8 @@ firebase-tools
 
 - hosting
 
+see `.env.development` and `.env.production`.
+
 ```sh
 > nvm use
 > yarn install
