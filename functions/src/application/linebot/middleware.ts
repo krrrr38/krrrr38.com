@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express-serve-static-core'
 import { validateSignature } from '@line/bot-sdk'
+import { NextFunction, Request, Response } from 'express'
 
 export const linebotMiddleware = (secret: string) => {
   return (req: Request, res: Response, next: NextFunction) => {

@@ -7,7 +7,6 @@ import { rawBodySaver, slackUrlEncodedMiddleware } from './application/slackbot/
 import { Moon } from './application/slackbot/moon'
 import { slackSlashCommand } from './application/slackbot/slack-response'
 import Router from 'express-promise-router'
-import { AddressInfo } from 'net'
 import * as firebaseAdmin from 'firebase-admin'
 
 // initialize slack bot
@@ -37,7 +36,7 @@ router.get('/api/my', async (req: express.Request, res: express.Response) => {
   if (authHeader !== undefined && authHeader.startsWith('Bearer ')) {
     const idToken = authHeader.substring(7)
     try {
-      const v = await firebaseAdmin.auth().verifyIdToken(idToken)
+      await firebaseAdmin.auth().verifyIdToken(idToken)
       res.send('hello')
     } catch (e) {
       res.status(400).send(e.message)
@@ -68,7 +67,7 @@ apiApp.use(router)
 if (process.env.RUN_API_SERVER) {
   const server = apiApp.listen(3000, () => {
     const address = server.address()
-    const port = typeof address === 'object' ? (address as AddressInfo).port.toString() : address
+    const port = typeof address === 'object' ? address.port.toString() : address
     console.log('Node.js is listening to PORT:' + port)
   })
 }

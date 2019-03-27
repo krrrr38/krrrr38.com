@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from 'express-serve-static-core'
 import * as crypto from 'crypto'
+import { NextFunction, Request, Response } from 'express'
 
 // slackのsigning secret検証時にraw bodyが必要なので予め取る
 export const rawBodySaver = (req: any, res: any, buf: any, encoding: any) => {
