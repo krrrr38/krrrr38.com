@@ -49,7 +49,7 @@ export const SlackBotMoonConfig = {
 export const FirebaseConfig = {
   serviceAccountJson: JSON.parse(
     loadEnvOrFunctionConfig('FIREBASE_SERVICE_ACCOUNT', (c: functions.config.Config) => {
-      return c.fb.service_account
+      return JSON.stringify(c.fb.service_account)
     })
   ) as FirebaseServiceAccount,
   databaseURL: loadEnvOrFunctionConfig('FIREBASE_DATABASE_URL', c => {
