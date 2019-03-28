@@ -13,6 +13,7 @@ const debug = process.env.NODE_ENV !== 'production'
 console.log({ env: process.env.NODE_ENV, version: version })
 
 Vue.use(Vuex)
+Vue.config.productionTip = debug
 
 export default new Vuex.Store<RootState>({
   modules: {
