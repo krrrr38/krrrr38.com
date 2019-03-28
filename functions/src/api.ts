@@ -1,13 +1,15 @@
 import * as express from 'express'
 import { Teto } from './application/linebot/teto'
 import { linebotMiddleware } from './application/linebot/middleware'
-import { LineBotTetoConfig, SlackBotMoonConfig, FirebaseConfig } from './config'
+import { AppConfig, LineBotTetoConfig, SlackBotMoonConfig, FirebaseConfig } from './config'
 import { Client, ClientConfig } from '@line/bot-sdk'
 import { rawBodySaver, slackUrlEncodedMiddleware } from './application/slackbot/middleware'
 import { Moon } from './application/slackbot/moon'
 import { slackSlashCommand } from './application/slackbot/slack-response'
 import Router from 'express-promise-router'
 import * as firebaseAdmin from 'firebase-admin'
+
+const version = AppConfig.version
 
 // initialize slack bot
 const slackBotMoon = new Moon()
@@ -29,7 +31,7 @@ firebaseAdmin.initializeApp({
 // setup express
 const router = Router()
 router.get('/api/health', (req: express.Request, res: express.Response) => {
-  res.send('hello')
+  res.send({version : version})
 })
 router.get('/api/my', async (req: express.Request, res: express.Response) => {
   const authHeader = req.header('Authorization')

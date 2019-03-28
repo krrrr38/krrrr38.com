@@ -6,6 +6,7 @@ import * as functions from 'firebase-functions'
 // FIREBASE_DATABASE_URL='https://dev-krrrr38.firebaseio.com'
 
 // for production
+// firebase -P prod functions:config:set app.version=version
 // firebase -P prod functions:config:set linebot.teto.token=${CHANNEL_ACCESS_TOKEN}
 // firebase -P prod functions:config:set linebot.teto.secret=${CHANNEL_SECRET}
 // firebase -P prod functions:config:set slackbot.moon.app_signing_secret=${SLACK_APP_SIGNING_SECRET}
@@ -33,6 +34,10 @@ const loadEnvOrFunctionConfig = (env: string, f: (c: functions.config.Config) =>
   } else {
     return f(functions.config())
   }
+}
+
+export const AppConfig = {
+  version: functions.config().app.version
 }
 
 export const LineBotTetoConfig = {

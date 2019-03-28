@@ -9,6 +9,7 @@
     "deploy": "firebase deploy",
     "deployProdCI": "firebase deploy -P prod --only hosting,firestore --token=$FIREBASE_DEPLOY_TOKEN",
     "deployProdFunctionsCI": "firebase deploy -P prod --only functions --token=$FIREBASE_DEPLOY_TOKEN",
+    "setProdFunctionsConfig": "firebase -P prod functions:config:set app.version=$CIRCLE_SHA1 --token=$FIREBASE_DEPLOY_TOKEN",
     "test:unit": "vue-cli-service test:unit",
     "fmt": "prettier --write src/**/*.ts src/**/*.vue"
   },
