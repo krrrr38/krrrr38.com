@@ -12,6 +12,7 @@ import Login from './views/auth/Login.vue'
 import Logout from './views/auth/Logout.vue'
 import Admin from './views/admin/Admin.vue'
 import MyPage from './views/mypage/MyPage.vue'
+import ChatApp from './views/apps/chat/ChatApp.vue'
 
 Vue.use(Router)
 
@@ -56,6 +57,14 @@ const router = new Router({
       path: '/my',
       name: 'my',
       component: MyPage,
+      meta: {
+        requireAuth: true
+      }
+    },
+    {
+      path: '/apps/chat',
+      name: 'apps-chat',
+      component: ChatApp,
       meta: {
         requireAuth: true
       }

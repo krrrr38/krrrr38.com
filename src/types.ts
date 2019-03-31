@@ -21,10 +21,14 @@ export interface LoginState {
 
 export interface LogoutState {} // tslint:disable-line
 
-export interface MyPageState {}
-
 export interface AuthState {
   user?: LoginUser
+}
+
+export interface MyPageState {}
+
+export interface ChatAppState {
+  messages: ChatMessage[]
 }
 
 //////////////////////////////////////////////
@@ -60,4 +64,11 @@ export interface LoginUser {
   readonly picture: string
   readonly userId: string
   readonly email: string
+}
+
+export interface ChatMessage {
+  readonly message: string
+  readonly userId: string
+  readonly userName: string
+  readonly pictureUrl: string
 }

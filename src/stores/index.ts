@@ -8,6 +8,7 @@ import { auth } from './modules/auth/auth'
 import { authSignup } from './modules/auth/signup'
 import { authLogin } from './modules/auth/login'
 import { authLogout } from './modules/auth/logout'
+import { chatApp } from '@/stores/modules/apps/chat/chat-app'
 
 const version = process.env.VUE_APP_VERSION || 'unknown'
 const debug = process.env.NODE_ENV !== 'production'
@@ -24,7 +25,8 @@ export default new Vuex.Store<RootState>({
     auth,
     authSignup,
     authLogin,
-    authLogout
+    authLogout,
+    chatApp
   },
   state: { version },
   mutations: {},
