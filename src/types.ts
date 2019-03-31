@@ -21,8 +21,10 @@ export interface LoginState {
 
 export interface LogoutState {} // tslint:disable-line
 
-export interface MyPageState {
-  user: LoginUser
+export interface MyPageState {}
+
+export interface AuthState {
+  user?: LoginUser
 }
 
 //////////////////////////////////////////////

@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 
 import { RootState } from '@/types'
 import { home } from './modules/home'
+import { mypage } from './modules/mypage/mypage'
+import { auth } from './modules/auth/auth'
 import { authSignup } from './modules/auth/signup'
 import { authLogin } from './modules/auth/login'
 import { authLogout } from './modules/auth/logout'
@@ -18,6 +20,8 @@ Vue.config.productionTip = debug
 export default new Vuex.Store<RootState>({
   modules: {
     home,
+    mypage,
+    auth,
     authSignup,
     authLogin,
     authLogout

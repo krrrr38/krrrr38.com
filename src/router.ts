@@ -2,9 +2,8 @@ import Vue from 'vue'
 import VueAnalytics from 'vue-analytics'
 import Component from 'vue-class-component'
 import Router from 'vue-router'
-import firebase from 'firebase'
-import 'firebase/auth'
 
+import firebase from './firebase'
 import Home from './views/index/Home.vue'
 import CvJa from './views/index/CvJa.vue'
 import CvEn from './views/index/CvEn.vue'
@@ -84,8 +83,7 @@ router.beforeEach((to, from, next) => {
         query: { redirect: to.fullPath }
       })
     }
-    firebase.auth().onAuthStateChanged(async user => {
-      console.log('onAuthStateChanged: ', user) // tslint:disable-line
+    firebase.onAuthStateChanged(async user => {
       if (user) {
         next()
       } else {

@@ -3,23 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './stores'
 import './registerServiceWorker'
-import firebase from 'firebase'
-import 'firebase/app'
-import 'firebase/auth'
+import firebase from './firebase'
+
+import { authMutation } from './stores/modules/auth/auth'
+import { LoginUser } from '@/types'
 
 let app: Vue
 
-const firebaseConfig = {
-  apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
-  authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
-  databaseURL: process.env.VUE_APP_FIREBASE_DATABASE_URL,
-  projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID
-}
-
-firebase.initializeApp(firebaseConfig)
-firebase.auth().onAuthStateChanged(user => {
+firebase.initializeApp()
+firebase.onAuthStateChanged(_ => {
   // initialize the app only when we are sure Firebase Auth object is ready to use.
   if (!app) {
     app = new Vue({
@@ -27,5 +19,17 @@ firebase.auth().onAuthStateChanged(user => {
       store,
       render: h => h(App)
     }).$mount('#app')
+  }
+})
+firebase.onAuthStateChanged(user => {
+  if (user) {
+    store.commit(`auth/${authMutation.onAuthStateChanged}`, {
+      name: user.displayName,
+      picture: user.photoURL,
+      userId: user.uid,
+      email: user.email
+    } as LoginUser)
+  } else {
+    store.commit(`auth/${authMutation.onAuthStateChanged}`, null)
   }
 })

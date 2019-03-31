@@ -31,7 +31,7 @@ firebaseAdmin.initializeApp({
 // setup express
 const router = Router()
 router.get('/api/health', (req: express.Request, res: express.Response) => {
-  res.send({version : version})
+  res.send({ version: version })
 })
 router.get('/api/my', async (req: express.Request, res: express.Response) => {
   const authHeader = req.header('Authorization')
