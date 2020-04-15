@@ -82,8 +82,8 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  const requireAuth = to.matched.some(r => r.meta.requireAuth)
-  const requireAdmin = to.matched.some(r => r.meta.requireAdmin) // TODO
+  const requireAuth = to.matched.some((r) => r.meta.requireAuth)
+  const requireAdmin = to.matched.some((r) => r.meta.requireAdmin) // TODO
 
   if (requireAuth) {
     const redirectLogin = () => {
@@ -92,7 +92,7 @@ router.beforeEach((to, from, next) => {
         query: { redirect: to.fullPath }
       })
     }
-    firebase.onAuthStateChanged(async user => {
+    firebase.onAuthStateChanged(async (user) => {
       if (user) {
         next()
       } else {

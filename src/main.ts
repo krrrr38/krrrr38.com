@@ -11,17 +11,17 @@ import { LoginUser } from '@/types'
 let app: Vue
 
 firebase.initializeApp()
-firebase.onAuthStateChanged(_ => {
+firebase.onAuthStateChanged((_) => {
   // initialize the app only when we are sure Firebase Auth object is ready to use.
   if (!app) {
     app = new Vue({
       router,
       store,
-      render: h => h(App)
+      render: (h) => h(App)
     }).$mount('#app')
   }
 })
-firebase.onAuthStateChanged(user => {
+firebase.onAuthStateChanged((user) => {
   if (user) {
     store.commit(`auth/${authMutation.onAuthStateChanged}`, {
       name: user.displayName,

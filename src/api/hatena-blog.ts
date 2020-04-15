@@ -10,10 +10,10 @@ export const HatenaBlogAPI = {
     const url = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(BLOG_URL)}`
     axios
       .get(url)
-      .then(response => {
+      .then((response) => {
         handler(response.data as HatenaBlogFeedResponse)
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error) // tslint:disable-line
       })
   }

@@ -9,10 +9,10 @@ export const AuthAPI = {
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
-      .then(userCredential => {
+      .then((userCredential) => {
         success()
       })
-      .catch(error => {
+      .catch((error) => {
         alert(error) // tslint:disable-line
       })
   },
@@ -23,7 +23,7 @@ export const AuthAPI = {
       .then(() => {
         success()
       })
-      .catch(error => {
+      .catch((error) => {
         alert(error) // tslint:disable-line
       })
   },
@@ -31,10 +31,10 @@ export const AuthAPI = {
     firebase
       .auth()
       .signInWithEmailAndPassword(email, password)
-      .then(userCredential => {
+      .then((userCredential) => {
         success()
       })
-      .catch(error => {
+      .catch((error) => {
         alert(error) // tslint:disable-line
       })
   },
@@ -45,7 +45,7 @@ export const AuthAPI = {
       .then(() => {
         success()
       })
-      .catch(error => {
+      .catch((error) => {
         alert(error) // tslint:disable-line
       })
   }
