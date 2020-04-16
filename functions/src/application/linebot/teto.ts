@@ -5,13 +5,13 @@ export class Teto {
   constructor(private client: Client) {}
 
   async handle(events: WebhookEvent[]): Promise<string> {
-    return Promise.all(events.map(event => this.handleEvent(event))).then(res => 'ok')
+    return Promise.all(events.map((event) => this.handleEvent(event))).then((res) => 'ok')
   }
 
   private async handleEvent(event: WebhookEvent): Promise<any> {
     switch (event.type) {
       case 'message':
-        return this.handleMessageEvent(event).then(messages => {
+        return this.handleMessageEvent(event).then((messages) => {
           if (messages) {
             this.client.replyMessage(event.replyToken, messages)
           }

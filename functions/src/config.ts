@@ -57,7 +57,7 @@ export const FirebaseConfig = {
       return JSON.stringify(c.fb.service_account)
     })
   ) as FirebaseServiceAccount,
-  databaseURL: loadEnvOrFunctionConfig('FIREBASE_DATABASE_URL', c => {
+  databaseURL: loadEnvOrFunctionConfig('FIREBASE_DATABASE_URL', (c) => {
     return c.fb.database_url
   })
 }

@@ -59,7 +59,7 @@ router.post(
 router.post('/api/linebot/teto', lineBotTetoMiddleware, (req, res) => {
   lineBotTeto
     .handle(req.body.events)
-    .then(result => res.send(result))
+    .then((result) => res.send(result))
     .catch(() => console.error('failed to handle linebot tet request'))
 })
 

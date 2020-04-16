@@ -13,10 +13,7 @@ export const rawBodySaver = (req: any, res: any, buf: any, encoding: any) => {
 export const slackUrlEncodedMiddleware = (slackSigningSecret: string) => {
   return (req: Request, res: Response, next: NextFunction) => {
     const sigBaseString = `v0:${req.header('X-Slack-Request-Timestamp')}:${(req as any).rawBody}`
-    const hash = crypto
-      .createHmac('sha256', slackSigningSecret)
-      .update(sigBaseString)
-      .digest('hex')
+    const hash = crypto.createHmac('sha256', slackSigningSecret).update(sigBaseString).digest('hex')
     if (req.header('X-Slack-Signature') !== `v0=${hash}`) {
       res.sendStatus(401)
     } else {

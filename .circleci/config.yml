@@ -5,7 +5,7 @@ jobs:
   build-job:
     docker:
       # documented at https://circleci.com/docs/2.0/circleci-images/
-      - image: circleci/node:10.5
+      - image: circleci/node:10.20.1
     working_directory: ~/repo
     steps:
       - checkout
@@ -21,7 +21,7 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
   deploy-job:
     docker:
-      - image: circleci/node:10.5
+      - image: circleci/node:10.20.1
     working_directory: ~/repo
     steps:
       - checkout
@@ -34,7 +34,7 @@ jobs:
           command: yarn deployProdCI
   deploy-functions:
     docker:
-      - image: circleci/node:10.5
+      - image: circleci/node:10.20.1
     working_directory: ~/repo
     steps:
       - checkout
