@@ -1,0 +1,25 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import { BLOG_RSS } from "../config";
+import Basic from "../components/top/Basic.astro";
+import Social from "../components/top/Social.astro";
+import { Blog } from "../components/top/Blog";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <Basic />
+      <Social />
+      <Blog client:load rss={BLOG_RSS} />
+    </main>
+    <Footer />
+  </body>
+</html>

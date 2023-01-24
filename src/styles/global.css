@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+  font-family: Verdana, sans-serif;
+  margin: auto;
+  padding: 20px;
+  max-width: 80ch;
+  text-align: left;
+  background-color: #fffcf2;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  line-height: 1.5;
+  color: #68412e;
+}
+/* h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  color: #222;
+}
+a {
+  color: #3273dc;
+} */
+nav a {
+  margin-right: 10px;
+}
+textarea {
+  width: 100%;
+  font-size: 16px;
+}
+input {
+  font-size: 16px;
+}
+content {
+  line-height: 1.6;
+}
+table {
+  width: 100%;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+code {
+  padding: 2px 5px;
+  background-color: #f2f2f2;
+}
+pre {
+  padding: 1rem;
+}
+pre > code {
+  all: unset;
+}
+blockquote {
+  border: 1px solid #999;
+  color: #222;
+  padding: 2px 0px 2px 20px;
+  margin: 0px;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "LigatureSymbols";
+  src: url("/assets/fonts/LigatureSymbols-2.11.eot");
+  src: url("/assets/fonts/LigatureSymbols-2.11.eot?#iefix")
+      format("embedded-opentype"),
+    url("/assets/fonts/LigatureSymbols-2.11.woff") format("woff"),
+    url("/assets/fonts/LigatureSymbols-2.11.ttf") format("truetype"),
+    url("/assets/fonts/LigatureSymbols-2.11.svg#LigatureSymbols") format("svg");
+  src: url("/assets/fonts/LigatureSymbols-2.11.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
