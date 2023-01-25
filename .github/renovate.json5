@@ -2,6 +2,8 @@
   extends: [
     "config:base",
     "schedule:earlyMondays",
+    "group:allNonMajor",
+    "group:definitelyTyped",
   ],
   automerge: true,
   platformAutomerge: true,
@@ -9,7 +11,8 @@
   postUpdateOptions: [
     "npmDedupe",
   ],
-  prHourlyLimit: 1,
+  prHourlyLimit: 0,
+  prConcurrentLimit: 5,
   lockFileMaintenance: {
     enabled: true,
   },
@@ -19,4 +22,17 @@
       "security",
     ],
   },
+  packageRules: [
+    {
+      "groupName": "astro",
+      "groupSlug": "astro-patch",
+      "matchPackagePatterns": [
+        "astro",
+        "@astrojs/*",
+      ],
+      "matchUpdateTypes": [
+        "major",
+      ],
+    },
+  ],
 }
