@@ -30,9 +30,16 @@
         "astro",
         "@astrojs/*",
       ],
-      "matchUpdateTypes": [
-        "major",
+      "matchUpdateTypes": ["major"],
+    },
+    {
+      "groupName": "react",
+      "groupSlug": "react-patch",
+      "matchPackagePatterns": [
+        "react*",
+        "@types/react*",
       ],
+      "matchUpdateTypes": ["major"],
     },
   ],
 }
