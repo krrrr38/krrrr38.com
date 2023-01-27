@@ -59,7 +59,12 @@ export const Blog = ({ rss }: BlogProps) => {
   }, [rss]);
 
   if (blog === undefined) {
-    return undefined;
+    return (
+      <section>
+        <h2>Blog</h2>
+        <div>Loading ...</div>
+      </section>
+    );
   }
 
   return (
