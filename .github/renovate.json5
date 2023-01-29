@@ -15,7 +15,7 @@
   prConcurrentLimit: 5,
   lockFileMaintenance: {
     enabled: true,
-    schedule: ["on saturday"],
+    schedule: ["before 3am on sunday"],
   },
   vulnerabilityAlerts: {
     enabled: true,

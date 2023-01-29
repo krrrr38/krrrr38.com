@@ -1,5 +1,5 @@
 {
-  "name": "@example/blog",
+  "name": "homepage",
   "type": "module",
   "version": "0.0.1",
   "private": true,
@@ -11,17 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "^2.0.0",
-    "@astrojs/react": "^2.0.0",
-    "@astrojs/sitemap": "^1.0.0",
-    "@types/react": "^18.0.27",
-    "@types/react-dom": "^18.0.10",
-    "astro": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@astrojs/netlify": "2.0.0",
+    "@astrojs/react": "2.0.1",
+    "astro": "2.0.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@astrojs/partytown": "^1.0.2",
-    "prettier-plugin-astro": "^0.7.2"
+    "@types/react": "18.0.27",
+    "@types/react-dom": "18.0.10",
+    "@astrojs/partytown": "1.0.3",
+    "prettier-plugin-astro": "0.8.0"
   }
 }
