@@ -11,16 +11,16 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "2.2.0",
-    "@astrojs/react": "2.1.0",
-    "astro": "2.1.7",
+    "@astrojs/netlify": "2.2.1",
+    "@astrojs/react": "2.1.1",
+    "astro": "2.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
     "@types/react": "18.0.29",
     "@types/react-dom": "18.0.11",
-    "@astrojs/partytown": "1.1.1",
+    "@astrojs/partytown": "1.2.0",
     "prettier-plugin-astro": "0.8.0"
   }
 }
