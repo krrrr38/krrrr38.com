@@ -18,8 +18,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@types/react": "18.2.0",
-    "@types/react-dom": "18.2.1",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
     "@astrojs/partytown": "1.2.2",
     "prettier-plugin-astro": "0.9.0"
   }
