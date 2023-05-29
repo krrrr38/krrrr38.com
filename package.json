@@ -13,7 +13,7 @@
   "dependencies": {
     "@astrojs/netlify": "2.2.3",
     "@astrojs/react": "2.2.0",
-    "astro": "2.5.1",
+    "astro": "2.5.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
@@ -21,6 +21,6 @@
     "@types/react": "18.2.6",
     "@types/react-dom": "18.2.4",
     "@astrojs/partytown": "1.2.2",
-    "prettier-plugin-astro": "0.9.0"
+    "prettier-plugin-astro": "0.9.1"
   }
 }
