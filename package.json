@@ -11,9 +11,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "7.0.8",
-    "@astrojs/react": "5.0.4",
-    "astro": "6.3.1",
+    "@astrojs/netlify": "7.0.9",
+    "@astrojs/react": "5.0.5",
+    "astro": "6.3.3",
     "react": "19.2.6",
     "react-dom": "19.2.6"
   },
