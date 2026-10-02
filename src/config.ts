@@ -3,3 +3,7 @@
 
 export const SITE_TITLE = "krrrr38.com";
 export const BLOG_RSS = "https://krrrr.hatenablog.com/rss";
+
+// Cloudflare Web Analytics site token (public; embedded in the beacon snippet).
+// Leave empty to disable the beacon.
+export const CF_WEB_ANALYTICS_TOKEN = "";
