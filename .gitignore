@@ -65,4 +65,7 @@ typings/
 
 .vscode/
 dist/
-.netlify/
+.cloudflare/
+.wrangler/
+.astro/
+tmp/

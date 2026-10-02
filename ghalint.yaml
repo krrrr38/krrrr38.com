@@ -1,0 +1,5 @@
+excludes:
+  # reviewdogはcheckoutの認証情報を利用
+  - policy_name: checkout_persist_credentials_should_be_false
+    workflow_file_path: .github/workflows/action-lint.yaml
+    job_name: actionlint

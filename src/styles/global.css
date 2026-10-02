@@ -1,6 +1,6 @@
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 body {
   font-family: Verdana, sans-serif;
@@ -68,8 +68,8 @@ blockquote {
 @font-face {
   font-family: "LigatureSymbols";
   src: url("/assets/fonts/LigatureSymbols-2.11.eot");
-  src: url("/assets/fonts/LigatureSymbols-2.11.eot?#iefix")
-      format("embedded-opentype"),
+  src:
+    url("/assets/fonts/LigatureSymbols-2.11.eot?#iefix") format("embedded-opentype"),
     url("/assets/fonts/LigatureSymbols-2.11.woff") format("woff"),
     url("/assets/fonts/LigatureSymbols-2.11.ttf") format("truetype"),
     url("/assets/fonts/LigatureSymbols-2.11.svg#LigatureSymbols") format("svg");

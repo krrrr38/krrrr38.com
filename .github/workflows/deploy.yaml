@@ -1,0 +1,33 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+# Never cancel an in-progress deploy; queue the next one instead
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    environment:
+      name: prd
+      # TODO: Add `url: https://krrrr38.com` after the DNS is moved to Cloudflare
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      # `cf deploy` builds and uploads the Build Output
+      - run: vp run deploy
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}

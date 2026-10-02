@@ -1,22 +1,27 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request:
-    branches: [ master ]
+    branches: [master]
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions: {}
 
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [26.x]
+    timeout-minutes: 10
+    permissions:
+      contents: read
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
-          node-version-file: ./.node-version
-      - run: npm ci
-      - run: npm run build
+          persist-credentials: false
+      - uses: ./.github/actions/setup
+      - run: vp check
+      - run: vp run build
