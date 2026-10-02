@@ -21,3 +21,5 @@ vp check
 vp exec cf auth login
 vp run deploy
 ```
+
+or merge into default branch.
