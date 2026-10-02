@@ -33,7 +33,9 @@ jobs:
       - id: preview
         run: |
           set -o pipefail
-          output="$(vp exec cf previews deploy "pr-${PR_NUMBER}")"
+          CLOUDFLARE_PREVIEW_BUILD=true vp exec cf build >&2
+          cat .cloudflare/output/v0/config.json >&2; ls -la .cloudflare/output/v0 >&2
+          output="$(vp exec cf previews deploy --prebuilt "pr-${PR_NUMBER}")"
           printf '%s\n' "$output"
           {
             echo "url=$(printf '%s' "$output" | jq -er '.preview_urls[0]')"
