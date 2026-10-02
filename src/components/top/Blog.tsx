@@ -32,17 +32,13 @@ export const Blog = ({ rss }: BlogProps) => {
       .then((response) => response.text())
       .then((str) => new window.DOMParser().parseFromString(str, "text/xml"))
       .then((data) => {
-        const blogTitle =
-          data.querySelector("rss channel title")?.textContent ?? "";
-        const blogLink =
-          data.querySelector("rss channel link")?.textContent ?? "";
+        const blogTitle = data.querySelector("rss channel title")?.textContent ?? "";
+        const blogLink = data.querySelector("rss channel link")?.textContent ?? "";
         const blogPosts = Array.from(data.querySelectorAll("item"))
           .map((el) => {
             const postTitle = el.querySelector("title")?.textContent ?? "";
             const postLink = el.querySelector("link")?.textContent ?? "";
-            const pubDate = formatPubDate(
-              new Date(el.querySelector("pubDate")?.textContent ?? "")
-            );
+            const pubDate = formatPubDate(new Date(el.querySelector("pubDate")?.textContent ?? ""));
             return {
               date: pubDate,
               title: postTitle,
@@ -55,6 +51,9 @@ export const Blog = ({ rss }: BlogProps) => {
           link: blogLink,
           posts: blogPosts,
         });
+      })
+      .catch((error: unknown) => {
+        console.error(`failed to load ${rss}`, error);
       });
   }, [rss]);
 

@@ -1,26 +1,35 @@
 {
   "name": "homepage",
-  "type": "module",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
+    "dev": "cf dev",
+    "build": "cf build",
+    "deploy": "cf deploy",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/netlify": "8.2.6",
     "@astrojs/react": "7.0.0",
     "astro": "7.3.5",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@astrojs/partytown": "2.1.8",
+    "@cloudflare/build-output-utils": "0.8.5",
+    "@cloudflare/vite-plugin": "2.0.0-beta.sha-52b0dc0e9",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@astrojs/partytown": "2.1.8",
-    "prettier-plugin-astro": "1.1.0"
+    "cf": "1.0.0-beta.12",
+    "vite-plus": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.8.1",
+      "onFail": "download"
+    }
   }
 }

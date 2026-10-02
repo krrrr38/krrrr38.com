@@ -1,16 +1,9 @@
 {
-  extends: [
-    "config:base",
-    "schedule:earlyMondays",
-    "group:allNonMajor",
-    "group:definitelyTyped",
-  ],
+  extends: ["config:base", "schedule:earlyMondays", "group:allNonMajor", "group:definitelyTyped"],
   automerge: true,
   platformAutomerge: true,
   labels: ["dependencies"],
-  postUpdateOptions: [
-    "npmDedupe",
-  ],
+  postUpdateOptions: ["pnpmDedupe"],
   prHourlyLimit: 0,
   prConcurrentLimit: 5,
   lockFileMaintenance: {
@@ -19,28 +12,25 @@
   },
   vulnerabilityAlerts: {
     enabled: true,
-    labels: [
-      "security",
-    ],
+    labels: ["security"],
   },
   packageRules: [
     {
-      "groupName": "astro",
-      "groupSlug": "astro-patch",
-      "matchPackagePatterns": [
-        "astro",
-        "@astrojs/*",
-      ],
-      "matchUpdateTypes": ["major"],
+      // vite-plus, its catalog alias for vite and the vp CLI in mise.toml must move together
+      groupName: "vite-plus",
+      matchPackageNames: ["vite-plus", "@voidzero-dev/*", "voidzero-dev/vite-plus"],
     },
     {
-      "groupName": "react",
-      "groupSlug": "react-patch",
-      "matchPackagePatterns": [
-        "react*",
-        "@types/react*",
-      ],
-      "matchUpdateTypes": ["major"],
+      groupName: "astro",
+      groupSlug: "astro-patch",
+      matchPackagePatterns: ["astro", "@astrojs/*"],
+      matchUpdateTypes: ["major"],
+    },
+    {
+      groupName: "react",
+      groupSlug: "react-patch",
+      matchPackagePatterns: ["react*", "@types/react*"],
+      matchUpdateTypes: ["major"],
     },
   ],
 }

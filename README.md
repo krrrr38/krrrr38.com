@@ -1,9 +1,23 @@
 # krrrr38.com
 
+## Setup
+
+```sh
+mise install
+vp env on pnpm
+vp install
+```
+
 ## Develop
 
-`npm run dev`
+```sh
+vp run dev
+vp check
+```
 
 ## Deploy
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/83cba21e-1946-4344-834f-c87e7e0d6c32/deploy-status)](https://app.netlify.com/sites/krrrr38/deploys)
+```sh
+vp exec cf auth login
+vp run deploy
+```

@@ -20,11 +20,11 @@ export default class ReactEmbedGist extends Component {
     this.getGist();
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.gist !== this.props.gist) this.getGist();
   }
 
-  async getGist() {
+  getGist() {
     /*
      * Load gist from github and attach callback to be executed once this script finishes loading
      * The callbacks are going to be named as gist_callback_:ID where ID is the hash of the gist
@@ -38,7 +38,7 @@ export default class ReactEmbedGist extends Component {
         error: `${gist} is not valid format`,
       });
 
-    await this.setState({ loading: true });
+    this.setState({ loading: true });
     this.setupCallback(id);
 
     const script = document.createElement("script");
@@ -46,11 +46,11 @@ export default class ReactEmbedGist extends Component {
     if (file) url += `&file=${file}`;
     script.type = "text/javascript";
     script.src = url;
-    script.onerror = (e) => this.handleNetworkErrors(e);
+    script.onerror = () => this.handleNetworkErrors();
     document.head.appendChild(script);
   }
 
-  handleNetworkErrors(e) {
+  handleNetworkErrors() {
     /*
      * Unfortunately there is no clean / easy way to track if this is 404 or something else, so in that case
      * just say it failed to load regardless of reason
@@ -71,10 +71,7 @@ export default class ReactEmbedGist extends Component {
 
       if (!nextState.error) {
         // nextState.title = gist.description;
-        nextState.content = `${gist.div.replace(
-          /href=/g,
-          'target="_blank" href='
-        )}`;
+        nextState.content = `${gist.div.replace(/href=/g, 'target="_blank" href=')}`;
       }
 
       this.setState(nextState);
@@ -100,13 +97,7 @@ export default class ReactEmbedGist extends Component {
   }
 
   render() {
-    const {
-      loadingClass,
-      wrapperClass,
-      contentClass,
-      errorClass,
-      loadingFallback,
-    } = this.props;
+    const { loadingClass, wrapperClass, contentClass, errorClass, loadingFallback } = this.props;
 
     if (this.state.loading) {
       return (
