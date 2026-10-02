@@ -16,6 +16,12 @@
   },
   packageRules: [
     {
+      // `2.0.0-beta.sha-<hash>` builds cannot be ordered by version, so Renovate
+      // may "update" to an older build. Update it manually until it ships a stable release.
+      matchPackageNames: ["@cloudflare/vite-plugin"],
+      enabled: false,
+    },
+    {
       // vite-plus, its catalog alias for vite and the vp CLI in mise.toml must move together
       groupName: "vite-plus",
       matchPackageNames: ["vite-plus", "@voidzero-dev/*", "voidzero-dev/vite-plus"],
