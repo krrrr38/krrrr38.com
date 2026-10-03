@@ -5,7 +5,6 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Never cancel an in-progress deploy; queue the next one instead
 concurrency:
   group: ${{ github.workflow }}
   cancel-in-progress: false
@@ -26,7 +25,6 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      # `cf deploy` builds and uploads the Build Output
       - run: vp run deploy
         env:
           COMMIT_SHA: ${{ github.sha }}

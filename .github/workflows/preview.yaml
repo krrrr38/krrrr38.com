@@ -12,7 +12,6 @@ permissions: {}
 
 jobs:
   preview:
-    # Repository secrets are unavailable to pull requests from forks
     if: github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -26,9 +25,6 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      # Custom Domain 追加などで Worker の workers.dev Preview が無効だと
-      # `cf previews deploy` は preview_urls を空配列で返す。設定反映は production
-      # deploy 待ちになるため、Preview 前に subdomain API で有効化する。
       - name: Enable workers.dev Preview URLs
         run: |
           set -o pipefail
@@ -42,17 +38,11 @@ jobs:
           WORKER_NAME: krrrr38-com
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
-      # Creates or updates the Worker Preview for this pull request.
-      # Previews are not deleted on close; Cloudflare evicts the least recently
-      # deployed one when the per-Worker limit is reached.
-      # Preview URL は GitHub Deployment (View deployment) 経由で見せる。
       - id: preview
         run: |
           set -o pipefail
           output="$(vp exec cf previews deploy "pr-${PR_NUMBER}")"
           printf '%s\n' "$output"
-
-          # jq -e の失敗は $(...) 内だと echo の成功で握りつぶされるので、先に検証する。
           preview_url="$(printf '%s' "$output" | jq -er '.preview_urls[0] | select(type == "string" and length > 0)')"
           echo "url=${preview_url}" >> "$GITHUB_OUTPUT"
         env:

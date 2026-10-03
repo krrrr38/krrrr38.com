@@ -22,9 +22,6 @@ type ReactEmbedGistState = {
   error?: string | null;
 };
 
-/**
- * https://github.com/msaracevic/react-embed-gist/blob/a9855677f2eaa332196dee22f656b019edaa972a/src/ReactEmbedGist.js
- */
 export class ReactEmbedGist extends Component<ReactEmbedGistProps, ReactEmbedGistState> {
   state: ReactEmbedGistState = {
     loading: true,
