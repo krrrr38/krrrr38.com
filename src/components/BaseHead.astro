@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import { CF_WEB_ANALYTICS_TOKEN, SITE_TITLE } from '../config';
+import { SITE_TITLE } from '../config';
 
 export interface Props {
 	subtitle?: string;
@@ -54,14 +54,4 @@ const title = subtitle ? `${subtitle} | ${SITE_TITLE}` : SITE_TITLE;
 			gtag('config', 'G-CM51DZ95F8');
 		`} />
 	</Fragment>
-)}
-
-<!-- Cloudflare Web Analytics -->
-{!isPreview && CF_WEB_ANALYTICS_TOKEN && (
-	<script
-		is:inline
-		defer
-		src="https://static.cloudflareinsights.com/beacon.min.js"
-		data-cf-beacon={JSON.stringify({ token: CF_WEB_ANALYTICS_TOKEN })}
-	></script>
 )}
