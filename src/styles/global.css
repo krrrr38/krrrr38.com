@@ -14,21 +14,21 @@ body {
   line-height: 1.5;
   color: #68412e;
 }
-/* h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-strong,
-b {
-  color: #222;
-}
-a {
-  color: #3273dc;
-} */
 nav a {
+  display: inline-block;
   margin-right: 10px;
+  text-decoration: none;
+}
+nav a.active {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+header {
+  margin: 0em 0 1em;
+}
+footer {
+  padding: 25px;
+  text-align: center;
 }
 textarea {
   width: 100%;
@@ -63,6 +63,49 @@ blockquote {
   padding: 2px 0px 2px 20px;
   margin: 0px;
   font-style: italic;
+}
+
+.basic .icon {
+  position: absolute;
+  right: 10%;
+  top: 15px;
+}
+
+.basic .icon img {
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 480px) {
+  .basic .icon img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.social-list li {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.lsf,
+.lsf-icon:before {
+  font-family: "LigatureSymbols", sans-serif;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  -ms-text-rendering: optimizeLegibility;
+  -o-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-font-smoothing: antialiased;
+  -ms-font-smoothing: antialiased;
+  -o-font-smoothing: antialiased;
+}
+
+.lsf-icon:before {
+  content: attr(title);
+  font-size: 130%;
 }
 
 @font-face {

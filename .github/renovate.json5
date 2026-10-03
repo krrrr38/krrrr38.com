@@ -27,15 +27,9 @@
       matchPackageNames: ["vite-plus", "@voidzero-dev/*", "voidzero-dev/vite-plus"],
     },
     {
-      groupName: "astro",
-      groupSlug: "astro-patch",
-      matchPackagePatterns: ["astro", "@astrojs/*"],
-      matchUpdateTypes: ["major"],
-    },
-    {
       groupName: "react",
       groupSlug: "react-patch",
-      matchPackagePatterns: ["react*", "@types/react*"],
+      matchPackagePatterns: ["react*", "@types/react*", "@vitejs/plugin-react"],
       matchUpdateTypes: ["major"],
     },
   ],
