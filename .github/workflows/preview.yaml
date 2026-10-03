@@ -25,19 +25,6 @@ jobs:
         with:
           persist-credentials: false
       - uses: ./.github/actions/setup
-      - name: Enable workers.dev Preview URLs
-        run: |
-          set -o pipefail
-          curl -fsS -X POST \
-            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/workers/scripts/${WORKER_NAME}/subdomain" \
-            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
-            -H "Content-Type: application/json" \
-            --data '{"enabled":true,"previews_enabled":true}' \
-            | jq -e '.success == true and .result.previews_enabled == true'
-        env:
-          WORKER_NAME: krrrr38-com
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       - id: preview
         run: |
           set -o pipefail
