@@ -18,6 +18,7 @@ vp run build    # ビルド
 
 ## 構成
 
-- Astro の静的サイトを `cf` CLI で Cloudflare Workers（静的アセットのみ）へデプロイ。設定は `cloudflare.config.ts`。
+- Vite + React（SPA）を `cf` CLI で Cloudflare Workers（静的アセットのみ）へデプロイ。設定は `cloudflare.config.ts`。
+- SPA フォールバックは `assets.notFoundHandling: "single-page-application"`。将来 Hono を足すときは `runWorkerFirst: ["/api/*"]` を併用する想定。
 - `main` への push で `.github/workflows/deploy.yaml` がデプロイする。
 - workflow は ghalint の規約に従う（最小 `permissions`、SHA pin、`persist-credentials: false`）。

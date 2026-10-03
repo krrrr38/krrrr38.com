@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"; // we need this to make JSX compile
+import { useEffect, useState } from "react";
 
 type BlogProps = {
   rss: string;
@@ -16,16 +16,17 @@ type BlogPost = {
   link: string;
 };
 
-export const Blog = ({ rss }: BlogProps) => {
+function formatPubDate(d: Date) {
+  const year = d.getFullYear().toString().padStart(4, "0");
+  const month = (d.getMonth() + 1).toString().padStart(2, "0");
+  const day = d.getDate().toString().padStart(2, "0");
+  const hour = d.getHours().toString().padStart(2, "0");
+  const minute = d.getMinutes().toString().padStart(2, "0");
+  return `${year}-${month}-${day} ${hour}:${minute}`;
+}
+
+export function Blog({ rss }: BlogProps) {
   const [blog, setBlog] = useState<Blog | undefined>(undefined);
-  const formatPubDate = (d: Date) => {
-    const year = d.getFullYear().toString().padStart(4, "0");
-    const month = (d.getMonth() + 1).toString().padStart(2, "0");
-    const day = d.getDate().toString().padStart(2, "0");
-    const hour = d.getHours().toString().padStart(2, "0");
-    const minute = d.getMinutes().toString().padStart(2, "0");
-    return `${year}-${month}-${day} ${hour}:${minute}`;
-  };
 
   useEffect(() => {
     fetch(rss)
@@ -69,13 +70,13 @@ export const Blog = ({ rss }: BlogProps) => {
   return (
     <section>
       <h2>Blog</h2>
-      <a href={blog.link} target={"_blank"}>
+      <a href={blog.link} target="_blank" rel="noreferrer">
         {blog.title}
       </a>
       <ul style={{ margin: "0 25px" }}>
         {blog.posts.map((post) => (
           <li key={post.link}>
-            <a href={post.link} target={"_blank"}>
+            <a href={post.link} target="_blank" rel="noreferrer">
               {post.date}: {post.title}
             </a>
           </li>
@@ -83,4 +84,4 @@ export const Blog = ({ rss }: BlogProps) => {
       </ul>
     </section>
   );
-};
+}

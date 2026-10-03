@@ -4,6 +4,11 @@ export default defineConfig(({ isPreview }) => ({
   worker: {
     name: "krrrr38-com",
     compatibilityDate: "2026-09-30",
+    // SPA fallback so React Router deep links work without a User Worker.
+    // When adding Hono later, keep this and use runWorkerFirst: ["/api/*"].
+    assets: {
+      notFoundHandling: "single-page-application",
+    },
     // www.krrrr38.com -> krrrr38.com is handled by a zone-level Redirect Rule,
     // since static assets `_redirects` does not support domain-level redirects.
     // Preview uploads from Build Output don't support the `domains` field.
