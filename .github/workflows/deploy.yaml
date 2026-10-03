@@ -29,5 +29,6 @@ jobs:
       # `cf deploy` builds and uploads the Build Output
       - run: vp run deploy
         env:
+          COMMIT_SHA: ${{ github.sha }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
