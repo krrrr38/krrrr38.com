@@ -35,9 +35,14 @@ jobs:
           set -o pipefail
           output="$(vp exec cf previews deploy "pr-${PR_NUMBER}")"
           printf '%s\n' "$output"
+
+          # jq -e の失敗は $(...) 内だと echo の成功で握りつぶされるので、先に検証する。
+          preview_url="$(printf '%s' "$output" | jq -er '.preview_urls[0] | select(type == "string" and length > 0)')"
+          deployment_url="$(printf '%s' "$output" | jq -er '.deployment_urls[0] | select(type == "string" and length > 0)')"
+
           {
-            echo "url=$(printf '%s' "$output" | jq -er '.preview_urls[0]')"
-            echo "deployment_url=$(printf '%s' "$output" | jq -er '.deployment_urls[0]')"
+            echo "url=${preview_url}"
+            echo "deployment_url=${deployment_url}"
           } >> "$GITHUB_OUTPUT"
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}

@@ -4,6 +4,10 @@ export default defineConfig(({ isPreview }) => ({
   worker: {
     name: "krrrr38-com",
     compatibilityDate: "2026-09-30",
+    // Custom Domain だけだと workers.dev / Preview URL が無効扱いになり得る。
+    // `cf previews deploy` が URL を返すには Preview 用 workers.dev が必要。
+    workersDev: true,
+    previewUrls: true,
     // SPA fallback so React Router deep links work without a User Worker.
     // When adding Hono later, keep this and use runWorkerFirst: ["/api/*"].
     assets: {
