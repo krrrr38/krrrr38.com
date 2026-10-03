@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krrrr38.com/sitemap.xml

@@ -4,6 +4,7 @@ import { Layout } from "./components/Layout";
 import { CvEnPage } from "./pages/CvEnPage";
 import { CvJaPage } from "./pages/CvJaPage";
 import { HomePage } from "./pages/HomePage";
+import { NotFoundPage } from "./pages/NotFoundPage";
 
 export function App() {
   return (
@@ -14,6 +15,7 @@ export function App() {
           <Route index element={<HomePage />} />
           <Route path="cv/en" element={<CvEnPage />} />
           <Route path="cv/ja" element={<CvJaPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </>
