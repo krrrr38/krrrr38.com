@@ -27,8 +27,11 @@
       matchPackageNames: ["vite-plus", "@voidzero-dev/*", "voidzero-dev/vite-plus"],
     },
     {
-      // Infrastructure changes are merged after reviewing the plan
-      matchManagers: ["terraform"],
+      // Updated outside infra/, so no plan runs to gate the automerge.
+      // Updates under infra/ are automerged only when the plan has no changes (terraform-plan.yaml).
+      groupName: "terraform tooling",
+      matchManagers: ["mise", "github-actions"],
+      matchPackageNames: ["terraform", "hashicorp/terraform", "suzuki-shunsuke/tfaction"],
       automerge: false,
     },
     {
