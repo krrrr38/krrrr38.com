@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/suzuki-shunsuke/tfaction/refs/tags/v2.3.3/schema/tfaction-root.json
+plan_workflow_name: terraform-plan.yaml
+available_providers:
+  - name: registry.terraform.io/cloudflare/cloudflare
+target_groups:
+  - working_directory: infra
+# Must match the platforms in .terraform.lock.hcl, otherwise terraform-init rewrites it and fails
+providers_lock_opts: -platform=linux_amd64 -platform=darwin_arm64
+tflint:
+  enabled: false
+trivy:
+  enabled: false

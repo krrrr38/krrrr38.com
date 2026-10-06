@@ -10,11 +10,13 @@ runs:
     - name: Get pnpm store path
       id: pnpm-store
       shell: bash
+      working-directory: site
       run: echo "path=$(vp exec pnpm store path)" >> "$GITHUB_OUTPUT"
     - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
       with:
         path: ${{ steps.pnpm-store.outputs.path }}
-        key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+        key: pnpm-store-${{ runner.os }}-${{ hashFiles('site/pnpm-lock.yaml') }}
         restore-keys: pnpm-store-${{ runner.os }}-
     - shell: bash
+      working-directory: site
       run: vp install

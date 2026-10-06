@@ -1,5 +1,6 @@
 [tools]
 node = "26.10.0"
 "github:voidzero-dev/vite-plus" = "1.0.0"
+terraform = "1.16.5"
 actionlint = "1.7.12"
 ghalint = "1.5.6"

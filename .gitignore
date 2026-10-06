@@ -68,3 +68,8 @@ dist/
 .cloudflare/
 .wrangler/
 tmp/
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*

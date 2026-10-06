@@ -27,6 +27,11 @@
       matchPackageNames: ["vite-plus", "@voidzero-dev/*", "voidzero-dev/vite-plus"],
     },
     {
+      // Infrastructure changes are merged after reviewing the plan
+      matchManagers: ["terraform"],
+      automerge: false,
+    },
+    {
       groupName: "react",
       groupSlug: "react-patch",
       matchPackagePatterns: ["react*", "@types/react*", "@vitejs/plugin-react"],
