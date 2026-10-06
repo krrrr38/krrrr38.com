@@ -1,0 +1,85 @@
+name: Terraform apply
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: false
+
+permissions: {}
+
+env:
+  TFACTION_IS_APPLY: "true"
+
+jobs:
+  list:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read # find the merged pull request
+    outputs:
+      targets: ${{ steps.list-targets.outputs.targets }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - id: list-targets
+        uses: suzuki-shunsuke/tfaction@07a983968cbace490e9059103a7019a638c65e10 # v2.3.3
+        with:
+          action: list-targets
+
+  apply:
+    name: apply (${{ matrix.target.target }})
+    needs: list
+    # Skipped when no root module is changed
+    if: join(fromJSON(needs.list.outputs.targets), '') != ''
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      actions: read # download the plan file made by the plan workflow
+      contents: read
+      pull-requests: write # apply comments
+    environment:
+      name: terraform-apply
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJSON(needs.list.outputs.targets) }}
+    env:
+      TFACTION_TARGET: ${{ matrix.target.target }}
+      TFACTION_WORKING_DIR: ${{ matrix.target.working_directory }}
+      TFACTION_JOB_TYPE: ${{ matrix.target.job_type }}
+      TFACTION_SKIP_TERRAFORM: ${{ matrix.target.skip_terraform }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - run: echo "::add-mask::${CLOUDFLARE_ACCOUNT_ID}"
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+      - uses: jdx/mise-action@2d8d4cafcbd33be2ea37d2b6f5ad595363d1f1ca # v5.1.1
+        with:
+          install_args: terraform
+      - uses: suzuki-shunsuke/tfaction@07a983968cbace490e9059103a7019a638c65e10 # v2.3.3
+        with:
+          action: setup
+      - uses: suzuki-shunsuke/tfaction@07a983968cbace490e9059103a7019a638c65e10 # v2.3.3
+        with:
+          action: terraform-init
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_ENDPOINT_URL_S3: https://${{ vars.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+      - uses: suzuki-shunsuke/tfaction@07a983968cbace490e9059103a7019a638c65e10 # v2.3.3
+        with:
+          action: apply
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          AWS_ENDPOINT_URL_S3: https://${{ vars.CLOUDFLARE_ACCOUNT_ID }}.r2.cloudflarestorage.com
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          # Public repository: keep Zone / Account / resource IDs out of the comments
+          TFCMT_MASKS: regexp:[0-9a-f]{32}

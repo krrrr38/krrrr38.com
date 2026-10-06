@@ -11,6 +11,10 @@ concurrency:
 
 permissions: {}
 
+defaults:
+  run:
+    working-directory: site
+
 jobs:
   deploy:
     runs-on: ubuntu-latest

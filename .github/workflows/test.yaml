@@ -12,6 +12,10 @@ concurrency:
 
 permissions: {}
 
+defaults:
+  run:
+    working-directory: site
+
 jobs:
   check:
     runs-on: ubuntu-latest
