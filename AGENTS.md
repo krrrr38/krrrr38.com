@@ -16,14 +16,11 @@ vp check        # fmt + lint + typecheck
 vp run build    # ビルド
 ```
 
-テストはなく、`vp check` と `vp run build` が CI と同じ検証。
-
-`infra/` は `terraform fmt -check` と `terraform init -backend=false && terraform validate` で検証する。`plan` は tfstate（R2）と API トークンが必要なので CI に任せる。
+テストはなく、`vp check` と `vp run build` が CI と同じ検証。`infra/` は `terraform fmt -check` と `terraform validate`。
 
 ## 構成
 
 - `site/`: Vite + React（SPA）を `cf` CLI で Cloudflare Workers（静的アセットのみ）へデプロイ。設定は `site/cloudflare.config.ts`。
-- `infra/`: Cloudflare のゾーン設定（DNS・Redirect Rule・ゾーン設定・Web Analytics）を管理する Terraform。Worker 本体と Custom Domain は `cf` CLI の管轄なので Terraform では管理しない。
-- `main` への push で `.github/workflows/deploy.yaml` が `site/` をデプロイし、`.github/workflows/terraform-apply.yaml` が `infra/` を apply する。Pull Request では tfaction（`tfaction-root.yaml`）が plan をコメントする。
-- public リポジトリなので Zone ID・Account ID・リソース ID は Terraform に直書きせず data source で引く。
+- `infra/`: Cloudflare のゾーン設定を管理する Terraform。Worker 本体は `cf` CLI の管轄。ID 類は直書きせず data source で引く。
+- `main` への push で `deploy.yaml` が `site/` をデプロイし、tfaction が `infra/` を apply する（Pull Request では plan）。
 - workflow は ghalint の規約に従う（最小 `permissions`、SHA pin、`persist-credentials: false`）。
