@@ -43,7 +43,7 @@ jobs:
       contents: read
       pull-requests: write # apply comments
     environment:
-      name: terraform-apply
+      name: prd
     strategy:
       fail-fast: false
       matrix:
