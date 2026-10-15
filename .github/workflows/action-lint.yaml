@@ -6,7 +6,7 @@ on:
       - .github/workflows/*.yml
       - .github/workflows/*.yaml
       - .github/actions/**
-      - ghalint.yaml
+      - .github/jactionlint.yaml
       - mise.toml
 
 concurrency:
@@ -16,25 +16,8 @@ concurrency:
 permissions: {}
 
 jobs:
-  actionlint:
-    runs-on: ubuntu-latest # ubuntu-slimではdocker command not foundになるため、未対応
-    timeout-minutes: 5
-    permissions:
-      checks: write
-      contents: read
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: true # reviewdogのためにtrueにしている
-      - uses: reviewdog/action-actionlint@a8ac3eea598697a830f7d8e701fc9fcbfde88974 # v1.80.0
-        with:
-          fail_level: warning
-          filter_mode: nofilter
-          level: error
-          reporter: github-pr-review
-  ghalint:
-    runs-on: ubuntu-slim
+  jactionlint:
+    runs-on: ubuntu-latest # shellcheck が入っているため
     timeout-minutes: 5
     permissions:
       contents: read
@@ -44,6 +27,5 @@ jobs:
           persist-credentials: false
       - uses: jdx/mise-action@2d8d4cafcbd33be2ea37d2b6f5ad595363d1f1ca # v5.1.1
         with:
-          install_args: ghalint
-      - run: ghalint run
-      - run: ghalint act
+          install_args: github:jdx/jactionlint
+      - run: jactionlint --format github --strict-exit
