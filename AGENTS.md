@@ -23,4 +23,4 @@ vp run build    # ビルド
 - `site/`: Vite + React（SPA）を `cf` CLI で Cloudflare Workers（静的アセットのみ）へデプロイ。設定は `site/cloudflare.config.ts`。
 - `infra/`: Cloudflare のゾーン設定を管理する Terraform。Worker 本体は `cf` CLI の管轄。ID 類は直書きせず data source で引く。
 - `main` への push で `deploy.yaml` が `site/` をデプロイし、tfaction が `infra/` を apply する（Pull Request では plan）。
-- workflow は ghalint の規約に従う（最小 `permissions`、SHA pin、`persist-credentials: false`）。
+- workflow は jactionlint（リポジトリルートで `jactionlint`）が通る状態を保つ（最小 `permissions`、SHA pin、`persist-credentials: false` など）。
