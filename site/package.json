@@ -12,21 +12,21 @@
   "dependencies": {
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "react-router-dom": "7.18.4"
+    "react-router-dom": "7.18.5"
   },
   "devDependencies": {
     "@cloudflare/vite-plugin": "2.0.0-beta.sha-52b0dc0e9",
     "@types/node": "^26.6.3",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
-    "@vitejs/plugin-react": "6.1.2",
-    "cf": "1.0.0-beta.21",
+    "@vitejs/plugin-react": "6.2.1",
+    "cf": "1.0.0-beta.28",
     "vite-plus": "catalog:"
   },
   "devEngines": {
     "packageManager": {
       "name": "pnpm",
-      "version": "12.15.0",
+      "version": "12.18.0",
       "onFail": "download"
     }
   }
