@@ -1,5 +1,5 @@
 [tools]
-node = "26.13.0"
+node = "26.13.1"
 "github:voidzero-dev/vite-plus" = "1.7.0"
 terraform = "1.17.1"
-"github:jdx/jactionlint" = "2.5.0"
+"github:jdx/jactionlint" = "2.7.0"

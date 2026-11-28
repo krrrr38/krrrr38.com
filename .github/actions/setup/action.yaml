@@ -4,7 +4,7 @@ description: Install node and vp from mise.toml, then install dependencies with 
 runs:
   using: composite
   steps:
-    - uses: jdx/mise-action@b44d12e7d0d8ee7461bb893e1b1993500433185b # v5.2.7
+    - uses: jdx/mise-action@924e7c586e33d7d4bae9c14e26c5d22e2beb6e78 # v5.3.0
       with:
         install_args: node github:voidzero-dev/vite-plus
     - name: Get pnpm store path
